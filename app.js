@@ -20,7 +20,6 @@ app.get('/api/:date?', (req, res) =>
 	const re_format_date = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$/;
 	const value      = re_format_date.test(req.params.date) ? req.params.date : parseInt(req.params.date) ;
 	const date_value = new Date(value);
-
 	const utc_day   = week_list[date_value.getDay()];
 	const utc_date  = [date_value.getDate(), month_list[date_value.getMonth()], date_value.getYear()].join(' ');
 	const utc_time  = [('0' + date_value.getHours()).substr(-2), ('0' + date_value.getMinutes()).substr(-2), ('0' + date_value.getSeconds()).substr(-2)].join(':');
